@@ -1,0 +1,30 @@
+# .NET
+**/bin/
+**/obj/
+backend/Zapis.Api/App_Data/
+*.user
+
+# локальные кэши инструментов
+.dotnet/
+.nuget/
+.chrome*/
+
+# Flutter / Dart
+client/.dart_tool/
+client/build/
+client/.flutter-plugins
+client/.flutter-plugins-dependencies
+client/.packages
+client/ios/Pods/
+client/ios/.symlinks/
+client/android/.gradle/
+client/android/local.properties
+
+# IDE
+.idea/
+.vs/
+*.iml
+
+# OS
+.DS_Store
+Thumbs.db

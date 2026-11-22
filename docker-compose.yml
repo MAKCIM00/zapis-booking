@@ -1,0 +1,22 @@
+services:
+  db:
+    image: postgres:16-alpine
+    container_name: zapis-db
+    environment:
+      POSTGRES_DB: zapis
+      POSTGRES_USER: zapis
+      POSTGRES_PASSWORD: zapis
+    ports:
+      - "5432:5432"
+    volumes:
+      - zapis-data:/var/lib/postgresql/data
+      # schema.sql и queries.sql выполнятся при первом старте контейнера
+      - ./database:/docker-entrypoint-initdb.d:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U zapis -d zapis"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+volumes:
+  zapis-data:
